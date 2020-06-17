@@ -14,4 +14,15 @@ module.exports = {
         path: path.resolve(__dirname, 'dist2'), // dir de salida
         publicPath: '/' // para imagenes y demas
     },
+
+    // funcionamiento principal de webpack
+    module: {
+        rules: [
+            {
+                test: /\.js$/, // todos los files que terminen en js
+                exclude: /node_modules/ // excluye los node_modules
+                loader: 'babel-loader', // transpila codigo js
+            },
+        ],
+    },
 }
