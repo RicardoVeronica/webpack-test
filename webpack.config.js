@@ -3,7 +3,7 @@ const path = require('path')
 
 module.exports = {
     // tiene mas prioridad en el package.json
-    // mode: 'development'
+    mode: 'development',
 
     // punto de entrada
     entry: path.resolve(__dirname, 'src', 'index.js'),
@@ -20,9 +20,16 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/, // todos los files que terminen en js
-                exclude: /node_modules/ // excluye los node_modules
+                exclude: /node_modules/, // excluye los node_modules
                 loader: 'babel-loader', // transpila codigo js
             },
         ],
     },
+
+    devServer: {
+        contentBase: path.resolve(__dirname, 'src'),
+        port: 3000,
+    },
+
+    devtool: 'source-map' // source en consola para debuggear
 }
